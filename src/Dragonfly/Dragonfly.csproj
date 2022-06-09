@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>Heather Floyd [www.HeatherFloyd.com]</Copyright>
+    <RepositoryType>GIT</RepositoryType>
+    <Authors>Heather Floyd</Authors>
+    <Company></Company>
+    <Product>Dragonfly Umbraco 9</Product>
+    <Description>A collection of Umbraco 9 Helpers &amp; Models (min. Umbraco 9.3.0)</Description>
+    <PackageProjectUrl>https://github.com/hfloyd/Dragonfly.Umbraco9</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hfloyd/Dragonfly.Umbraco9</RepositoryUrl>
+    <PackageId>Dragonfly.Umbraco9</PackageId>
+    <AssemblyName>Dragonfly.Umbraco9</AssemblyName>
+    <RootNamespace>Dragonfly</RootNamespace>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <PackageReleaseNotes>Fixes</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageTags>Umbraco 9</PackageTags>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Heather\NAS Folders\Active Projects\Webs\~Code Projects\Dragonfly\Dragonfly.Umbraco9\src\Dragonfly\Dragonfly.Umbraco9.xml</DocumentationFile>
+  </PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+  <ItemGroup>
+    <Compile Remove="UmbracoModels\DataTypes\**" />
+    <Compile Remove="UmbracoModels\MvcFakes\**" />
+    <EmbeddedResource Remove="UmbracoModels\DataTypes\**" />
+    <EmbeddedResource Remove="UmbracoModels\MvcFakes\**" />
+    <None Remove="UmbracoModels\DataTypes\**" />
+    <None Remove="UmbracoModels\MvcFakes\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="UmbracoHelpers\ApiControllerHtmlHelper.cs" />
+    <Compile Remove="UmbracoHelpers\Email.cs" />
+    <Compile Remove="UmbracoHelpers\IContentExtensions.cs" />
+    <Compile Remove="UmbracoModels\‌Links\Link.cs" />
+    <Compile Remove="UmbracoServices\MediaFinderService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dragonfly.Net5" Version="1.0.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="9.3.0" PrivateAssetOnly="true" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.3.0" PrivateAssetOnly="true" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <Import Project="..\Custom.targets" />
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="REM XCOPY /y &quot;$(TargetDir)$(TargetName)*.*&quot; &quot;C:\Users\Heather\NAS Folders\Active Projects\Webs\Clients\WOOD\TommyGate-sourcecode\src\UmbracoProject\bin\Debug\net5.0\&quot;" />
+  </Target>
+</Project>
