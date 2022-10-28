@@ -14,7 +14,7 @@
     <PackageId>Dragonfly.Umbraco9</PackageId>
     <AssemblyName>Dragonfly.Umbraco9</AssemblyName>
     <RootNamespace>Dragonfly</RootNamespace>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <PackageReleaseNotes>Fixes</PackageReleaseNotes>
@@ -50,7 +50,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dragonfly.Net5" Version="1.0.0" />
+    <PackageReference Include="Dragonfly.Net5" Version="1.*" />
     <PackageReference Include="Umbraco.Cms.Core" Version="9.3.0" PrivateAssetOnly="true" />
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="9.3.0" PrivateAssetOnly="true" />
   </ItemGroup>
@@ -64,6 +64,6 @@
   <Import Project="..\Custom.targets" />
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="REM XCOPY /y &quot;$(TargetDir)$(TargetName)*.*&quot; &quot;C:\Users\Heather\NAS Folders\Active Projects\Webs\Clients\WOOD\TommyGate-sourcecode\src\UmbracoProject\bin\Debug\net5.0\&quot;" />
+    <Exec Command="REM XCOPY /y &quot;$(TargetDir)$(TargetName)*.*&quot; &quot;C:\Users\XX\&quot;" />
   </Target>
 </Project>
