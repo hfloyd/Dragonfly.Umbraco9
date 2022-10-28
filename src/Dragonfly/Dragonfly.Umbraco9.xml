@@ -257,6 +257,13 @@
             The <see cref="T:Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent"/> from the content picker.
             </returns>
         </member>
+        <member name="M:Dragonfly.UmbracoHelpers.ContentExtensions.ToLink(Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent)">
+            <summary>
+            Returns a Link object for the current IPublishedContent
+            </summary>
+            <param name="CurrentPage"></param>
+            <returns></returns>
+        </member>
         <member name="T:Dragonfly.UmbracoHelpers.Development">
             <summary>
             Helpers related to Templates, Node Paths, Udis, and Getting Site Pages.

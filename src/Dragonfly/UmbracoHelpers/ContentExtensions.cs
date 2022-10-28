@@ -7,9 +7,11 @@
     using System.Web;
     //using System.Web.Mvc;
     using Microsoft.AspNetCore.Html;
+    using Umbraco.Cms.Core;
     using Umbraco.Cms.Core.Models.PublishedContent;
     using Umbraco.Cms.Web.Common;
     using Umbraco.Extensions;
+    using Umbraco.Cms.Core.Models;
 
     /// <summary>
     /// Extension methods for Base models
@@ -701,6 +703,36 @@
                 }
             }
             return returnVal;
+        }
+
+        #endregion
+
+        #region Converting ContentNode to other Models
+
+        /// <summary>
+        /// Returns a Link object for the current IPublishedContent
+        /// </summary>
+        /// <param name="CurrentPage"></param>
+        /// <returns></returns>
+        public static Link ToLink(this IPublishedContent CurrentPage)
+        {
+            Link returnLink = new Link();
+            returnLink.Udi = CurrentPage.ToUdi();
+            returnLink.Url = CurrentPage.Url();
+            returnLink.Name = CurrentPage.Name;
+            returnLink.Target = "_self";
+
+            if (returnLink.Udi.EntityType == Constants.UdiEntityType.Document)
+            {
+                returnLink.Type = LinkType.Content;
+
+            }
+            else if (returnLink.Udi.EntityType == Constants.UdiEntityType.Media)
+            {
+                returnLink.Type = LinkType.Media;
+            }
+
+            return returnLink;
         }
 
         #endregion

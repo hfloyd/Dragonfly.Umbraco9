@@ -14,7 +14,7 @@
     <PackageId>Dragonfly.Umbraco9</PackageId>
     <AssemblyName>Dragonfly.Umbraco9</AssemblyName>
     <RootNamespace>Dragonfly</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <PackageReleaseNotes>Fixes</PackageReleaseNotes>
